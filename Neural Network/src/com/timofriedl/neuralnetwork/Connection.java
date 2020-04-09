@@ -26,7 +26,7 @@ public class Connection implements Serializable {
 	private double weight;
 
 	/**
-	 * Creates a new connection of two {@link Neuron}s.
+	 * Creates a new connection between two {@link Neuron}s.
 	 * 
 	 * @param from        the start neuron of this connection
 	 * @param to          the end neuron of this connection

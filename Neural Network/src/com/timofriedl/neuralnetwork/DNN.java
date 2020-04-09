@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @author Timo Friedl
  */
 public class DNN implements Serializable {
-
+	
 	/**
 	 * SVUID
 	 */

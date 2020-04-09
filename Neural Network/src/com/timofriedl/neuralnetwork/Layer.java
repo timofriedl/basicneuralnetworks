@@ -51,7 +51,7 @@ public class Layer implements Serializable {
 	}
 
 	/**
-	 * Collects all non-bias values of this {@link Layer} to one array
+	 * Collects all non-bias values of this {@link Layer} to one array.
 	 * 
 	 * @return the neuron values of this layer
 	 */

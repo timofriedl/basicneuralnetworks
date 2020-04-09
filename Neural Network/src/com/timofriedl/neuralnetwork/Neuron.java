@@ -76,7 +76,7 @@ public class Neuron implements Serializable {
 	}
 
 	/**
-	 * @return true if and only if this {@link Neuron} is a bias neuron.
+	 * @return true if and only if this {@link Neuron} is a bias neuron
 	 */
 	public boolean isBias() {
 		return bias;
