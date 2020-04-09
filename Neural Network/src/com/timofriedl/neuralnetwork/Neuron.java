@@ -1,11 +1,18 @@
 package com.timofriedl.neuralnetwork;
 
+import java.io.Serializable;
+
 /**
  * Represents one neuron of a {@link Layer} in a {@link DNN}.
  * 
  * @author Timo Friedl
  */
-public class Neuron {
+public class Neuron implements Serializable {
+
+	/**
+	 * SVUID
+	 */
+	private static final long serialVersionUID = -2495795584993454184L;
 
 	/**
 	 * the option to let this neuron be a bias neuron

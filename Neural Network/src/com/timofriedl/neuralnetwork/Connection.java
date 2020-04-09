@@ -1,5 +1,6 @@
 package com.timofriedl.neuralnetwork;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -7,7 +8,12 @@ import java.util.Random;
  * 
  * @author Timo Friedl
  */
-public class Connection {
+public class Connection implements Serializable {
+
+	/**
+	 * SVUID
+	 */
+	private static final long serialVersionUID = 2745194147818705722L;
 
 	/**
 	 * the {@link Neuron}s that are connected
