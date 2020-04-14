@@ -47,7 +47,7 @@ public class Layer implements Serializable {
 	 */
 	public void update() {
 		for (int i = 0; i < neurons.length; i++)
-			neurons[i].update();
+			neurons[i].update(i != neurons.length - 1);
 	}
 
 	/**

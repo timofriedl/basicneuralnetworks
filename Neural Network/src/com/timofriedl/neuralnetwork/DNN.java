@@ -16,11 +16,11 @@ import java.util.ArrayList;
  * @author Timo Friedl
  */
 public class DNN implements Serializable {
-	
+
 	/**
 	 * SVUID
 	 */
-	private static final long serialVersionUID = -1818088073664049200L;
+	private static final long serialVersionUID = -6357353786865354666L;
 
 	/**
 	 * the layers of this neural network
@@ -31,6 +31,11 @@ public class DNN implements Serializable {
 	 * the number of neurons in each layer, excluding bias neurons
 	 */
 	private final int[] layerSizes;
+
+	/**
+	 * the total number of weights in this network
+	 */
+	private int weightCount;
 
 	/**
 	 * Creates a new deep neural network with given layer sizes. First layer size is
@@ -49,6 +54,17 @@ public class DNN implements Serializable {
 
 		for (int i = 0; i < layers.length; i++)
 			layers[i] = new Layer(layerSizes[i], i != layers.length - 1, i == 0 ? null : layers[i - 1]);
+
+		initWeightCount();
+	}
+
+	/**
+	 * Initializes the weight count attribute.
+	 */
+	private void initWeightCount() {
+		for (Layer layer : layers)
+			for (int n = 0; n < layer.size(); n++)
+				weightCount += layer.get(n).getIncomingConnections().length;
 	}
 
 	/**
@@ -211,9 +227,23 @@ public class DNN implements Serializable {
 	}
 
 	/**
+	 * @return the number of neurons in each layer, excluding bias neurons
+	 */
+	public int[] getLayerSizes() {
+		return layerSizes;
+	}
+
+	/**
 	 * @return the layers of this {@link DNN}
 	 */
 	public Layer[] getLayers() {
 		return layers;
+	}
+
+	/**
+	 * @return the total number of connections in this {@link DNN}
+	 */
+	public int getWeightCount() {
+		return weightCount;
 	}
 }

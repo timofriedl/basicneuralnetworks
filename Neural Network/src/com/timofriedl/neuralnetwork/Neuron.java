@@ -54,7 +54,7 @@ public class Neuron implements Serializable {
 	 * Updates the value of this {@link Neuron} by adding the weighted values of the
 	 * neurons of the previous {@link Layer}.
 	 */
-	public void update() {
+	public void update(boolean activate) {
 		if (bias)
 			return;
 
@@ -62,7 +62,7 @@ public class Neuron implements Serializable {
 		for (int i = 0; i < incomingConnections.length; i++)
 			newValue += incomingConnections[i].getWeight() * incomingConnections[i].getFrom().value;
 
-		value = relu(newValue);
+		value = activate ? relu(newValue) : newValue;
 	}
 
 	/**
